@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace ECommerce.Models
 {
-    public class Categories
+    public class Category
     {
         public int Id { get; set; }
 
