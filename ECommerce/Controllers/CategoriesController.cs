@@ -7,27 +7,27 @@ using System.Threading.Tasks;
 
 namespace ECommerce.Controllers
 {
-    public class ProductController : Controller
+    public class CategoriesController : Controller
     {
-        // GET: ProductController
+        // GET: CategoriesController
         public ActionResult Index()
         {
             return View();
         }
 
-        // GET: ProductController/Details/5
+        // GET: CategoriesController/Details/5
         public ActionResult Details(int id)
         {
             return View();
         }
 
-        // GET: ProductController/Create
+        // GET: CategoriesController/Create
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: ProductController/Create
+        // POST: CategoriesController/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Create(IFormCollection collection)
@@ -42,13 +42,13 @@ namespace ECommerce.Controllers
             }
         }
 
-        // GET: ProductController/Edit/5
+        // GET: CategoriesController/Edit/5
         public ActionResult Edit(int id)
         {
             return View();
         }
 
-        // POST: ProductController/Edit/5
+        // POST: CategoriesController/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Edit(int id, IFormCollection collection)
@@ -63,13 +63,13 @@ namespace ECommerce.Controllers
             }
         }
 
-        // GET: ProductController/Delete/5
+        // GET: CategoriesController/Delete/5
         public ActionResult Delete(int id)
         {
             return View();
         }
 
-        // POST: ProductController/Delete/5
+        // POST: CategoriesController/Delete/5
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Delete(int id, IFormCollection collection)
