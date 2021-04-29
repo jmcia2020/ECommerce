@@ -53,11 +53,11 @@ namespace ECommerce
                     pattern: "{controller=Home}/{action=Index}/{id?}");
 
                 /*
-                 *  / => HomeController.Index()
-                 * /About => AboutController.Index()
-                 * /About/Staff => AboutController.Staff()
-                 * /About/Staff/1 => AboutController.Staff(id: 1)
-                 */
+                *  / => HomeController.Index()
+                *  /About => AboutController.Index()
+                *  /About/Staff => AboutController.Staff()
+                *  /About/Staff/1 => AboutController.Staff(id: 1)
+                */
             });
         }
     }
