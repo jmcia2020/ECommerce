@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace ECommerce.Models
 {
-    public class Products
+    public class Product
     {
         public int Id { get; set; }
         
@@ -15,7 +15,14 @@ namespace ECommerce.Models
 
         public decimal Price { get; set; }
 
+        public bool OnSale { get; set; }
 
 
+        // Foreign Key
+        // Nullable so it's not required
+        public int? Category_Id { get; set; }
+
+        // Navigation Property
+        public Category Category { get; set; }
     }
 }
