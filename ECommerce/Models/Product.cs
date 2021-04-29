@@ -17,5 +17,12 @@ namespace ECommerce.Models
 
         public bool OnSale { get; set; }
 
+
+        // Foreign Key
+        // Nullable so it's not required
+        public int? Category_Id { get; set; }
+
+        // Navigation Property
+        public Category Category { get; set; }
     }
 }

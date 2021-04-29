@@ -12,5 +12,8 @@ namespace ECommerce.Models
         public string Name { get; set; }
 
         public string Description { get; set; }
+
+        // Reverse Navigation (Collection) Property
+        public List<Product> Products { get; } = new List<Product>();
     }
 }
