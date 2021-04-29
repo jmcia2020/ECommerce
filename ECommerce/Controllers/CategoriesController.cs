@@ -13,7 +13,16 @@ namespace ECommerce.Controllers
         // GET: Categories
         public ActionResult Index()
         {
-            return View();
+            var model = new List<Category>
+            {
+                new Category
+                {
+                    Id = 7,
+                    Name = "Floof",
+                    Description = "Awesome sauce.",
+                },
+            };
+            return View(model);
         }
 
         // GET: Categories/Details/5
