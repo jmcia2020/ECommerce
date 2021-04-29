@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using ECommerce.Models;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -7,27 +8,27 @@ using System.Threading.Tasks;
 
 namespace ECommerce.Controllers
 {
-    public class CategoryController : Controller
+    public class CategoriesController : Controller
     {
-        // GET: CategoryController
+        // GET: Categories
         public ActionResult Index()
         {
             return View();
         }
 
-        // GET: CategoryController/Details/5
+        // GET: Categories/Details/5
         public ActionResult Details(int id)
         {
             return View();
         }
 
-        // GET: CategoryController/Create
+        // GET: Categories/Create
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: CategoryController/Create
+        // POST: Categories/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Create(IFormCollection collection)
@@ -42,13 +43,13 @@ namespace ECommerce.Controllers
             }
         }
 
-        // GET: CategoryController/Edit/5
+        // GET: Categories/Edit/5
         public ActionResult Edit(int id)
         {
             return View();
         }
 
-        // POST: CategoryController/Edit/5
+        // POST: Categories/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Edit(int id, IFormCollection collection)
@@ -63,13 +64,13 @@ namespace ECommerce.Controllers
             }
         }
 
-        // GET: CategoryController/Delete/5
+        // GET: Categories/Delete/5
         public ActionResult Delete(int id)
         {
             return View();
         }
 
-        // POST: CategoryController/Delete/5
+        // POST: Categories/Delete/5
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Delete(int id, IFormCollection collection)
