@@ -21,15 +21,13 @@ namespace ECommerce.Controllers
                     Name = "Easter Pillow Cover",
                     Description = "Burlap 18 X 18 pillow cover with Easter motif",
                     Price = 25.25m,
-                    OnSale = true,
                 },
                 new Product
                 {
                     Id = 2,
                     Name = "Summer Pillow Cover",
                     Description = "Burlap 18 X 18 pillow cover with Summer Flowers motif",
-                    Price = 15.75m,
-                    OnSale = true,
+                    Price = 15.75m
                 },
 
                 new Product

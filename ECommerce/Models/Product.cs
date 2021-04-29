@@ -15,7 +15,7 @@ namespace ECommerce.Models
 
         public decimal Price { get; set; }
 
-        public bool OnSale { get; set; }
+
 
     }
 }
