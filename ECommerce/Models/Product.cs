@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -16,6 +17,9 @@ namespace ECommerce.Models
         public decimal Price { get; set; }
 
         public bool OnSale { get; set; }
+
+        [StringLength(250)]
+        public string ProdImageUrl { get; set; }
 
 
         // Foreign Key
