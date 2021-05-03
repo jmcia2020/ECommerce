@@ -17,9 +17,10 @@ namespace ECommerce.Controllers
         [HttpPost]
         public IActionResult Register(RegisterData data)
         {
-            return null;
+            return RedirectToAction(nameof(Welcome));
         }
 
+        [HttpGet("Welcome")]
         public IActionResult Welcome()
         {
             return View();
