@@ -10,11 +10,13 @@ namespace ECommerce.Services.Identity
 {
     public class IdentityUserService : IUserService
     {
+        private readonly SignInManager<ApplicationUser> signInManager;
         private readonly UserManager<ApplicationUser> userManager;
 
-        public IdentityUserService(UserManager<ApplicationUser> userManager)
+        public IdentityUserService(UserManager<ApplicationUser> userManager, SignInManager<ApplicationUser> signInManager)
         {
             this.userManager = userManager;
+            this.signInManager = signInManager;            
         }
 
         public async Task<ApplicationUser> Register(RegisterData data, ModelStateDictionary modelState)
