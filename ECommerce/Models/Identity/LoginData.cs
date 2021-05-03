@@ -2,7 +2,7 @@
 
 namespace ECommerce.Models.Identity
 {
-    public class RegisterData
+    public class LoginData
     {
         [Required]
         [EmailAddress]
