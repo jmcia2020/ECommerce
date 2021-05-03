@@ -23,7 +23,7 @@ namespace ECommerce.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> RegisterAsync(RegisterData data)
+        public async Task<IActionResult> Register(RegisterData data)
         {
             // Check for simple errors, e.g. [Required]
             if (!ModelState.IsValid)
@@ -44,6 +44,11 @@ namespace ECommerce.Controllers
 
         [HttpGet("Welcome")]
         public IActionResult Welcome()
+        {
+            return View();
+        }
+
+        public IActionResult Login()
         {
             return View();
         }
