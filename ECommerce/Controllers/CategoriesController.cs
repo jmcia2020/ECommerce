@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using ECommerce.Models;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -7,27 +8,36 @@ using System.Threading.Tasks;
 
 namespace ECommerce.Controllers
 {
-    public class CatagoryController : Controller
+    public class CategoriesController : Controller
     {
-        // GET: CatagoryController
+        // GET: Categories
         public ActionResult Index()
         {
-            return View();
+            var model = new List<Category>
+            {
+                new Category
+                {
+                    Id = 7,
+                    Name = "Floof",
+                    Description = "Awesome sauce.",
+                },
+            };
+            return View(model);
         }
 
-        // GET: CatagoryController/Details/5
+        // GET: Categories/Details/5
         public ActionResult Details(int id)
         {
             return View();
         }
 
-        // GET: CatagoryController/Create
+        // GET: Categories/Create
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: CatagoryController/Create
+        // POST: Categories/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Create(IFormCollection collection)
@@ -42,13 +52,13 @@ namespace ECommerce.Controllers
             }
         }
 
-        // GET: CatagoryController/Edit/5
+        // GET: Categories/Edit/5
         public ActionResult Edit(int id)
         {
             return View();
         }
 
-        // POST: CatagoryController/Edit/5
+        // POST: Categories/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Edit(int id, IFormCollection collection)
@@ -63,13 +73,13 @@ namespace ECommerce.Controllers
             }
         }
 
-        // GET: CatagoryController/Delete/5
+        // GET: Categories/Delete/5
         public ActionResult Delete(int id)
         {
             return View();
         }
 
-        // POST: CatagoryController/Delete/5
+        // POST: Categories/Delete/5
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Delete(int id, IFormCollection collection)
