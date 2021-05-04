@@ -2,7 +2,6 @@
 using ECommerce.Models.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
-using ECommerce.Models;
 
 namespace ECommerce.DbData
 {
@@ -28,11 +27,12 @@ namespace ECommerce.DbData
                     Price = 25.25m,
                     OnSale = true,
                 });
-        }
+        } 
 
         public DbSet<Product> Products { get; set; }
 
         public DbSet<Category> Categories { get; set; }
+
     }
 }
 
