@@ -42,6 +42,10 @@ namespace ECommerce
 
             services.AddScoped<IUserService, IdentityUserService>();
             services.AddControllersWithViews();
+
+            //services.AddMvc(); // equivalent to:
+            services.AddRazorPages();
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -67,9 +71,12 @@ namespace ECommerce
 
             app.UseEndpoints(endpoints =>
             {
+                
                 endpoints.MapControllerRoute(
                     name: "default",
                     pattern: "{controller=Home}/{action=Index}/{id?}");
+
+                endpoints.MapRazorPages();
 
                 /*
                 *  / => HomeController.Index()
