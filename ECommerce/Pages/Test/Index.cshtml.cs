@@ -5,9 +5,9 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
-namespace ECommerce.Pages.Products
+namespace ECommerce.Pages.Test
 {
-    public class TestModel : PageModel
+    public class IndexModel : PageModel
     {
         public void OnGet()
         {

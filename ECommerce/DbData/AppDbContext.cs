@@ -26,12 +26,37 @@ namespace ECommerce.DbData
                     Description = "Burlap 18 X 18 pillow cover with Easter motif",
                     Price = 25.25m,
                     OnSale = true,
+                },
+                new Product
+                {
+                    Id = 2,
+                    Name = "Summer Pillow Cover",
+                    Description = "Burlap 18 X 18 pillow cover with Summer Flowers motif",
+                    Price = 15.75m,
+                    OnSale = true,
+                },
+
+                new Product
+                {
+                    Id = 3,
+                    Name = "Throw Blanket",
+                    Description = "Yellow 100% Cotton 50\" x 60\" throw blanket",
+                    Price = 19.75m,
+                },
+
+                new Product
+                {
+                    Id = 4,
+                    Name = "Down Alternative Bed Pillow",
+                    Description = "Standard size machine washable medium firm down alternative pillow",
+                    Price = 25.43m,
                 });
-        }
+        } 
 
         public DbSet<Product> Products { get; set; }
 
         public DbSet<Category> Categories { get; set; }
+
     }
 }
 
