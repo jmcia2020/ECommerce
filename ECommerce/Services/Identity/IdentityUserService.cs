@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Mvc.ModelBinding;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Claims;
 using System.Threading.Tasks;
 
 namespace ECommerce.Services.Identity
@@ -19,7 +20,17 @@ namespace ECommerce.Services.Identity
             this.signInManager = signInManager;            
         }
 
-        public async Task<ApplicationUser> Register(RegisterData data, ModelStateDictionary modelState)
+        public Task<ApplicationUser> GetCurrentUser()
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<ApplicationUser> GetUser(ClaimsPrincipal principal)
+        {
+            throw new NotImplementedException();
+        }
+
+        public async Task<ApplicationUser> Register(RegisterData data, string role, ModelStateDictionary modelState)
         {
             var user = new ApplicationUser
             {
@@ -32,7 +43,7 @@ namespace ECommerce.Services.Identity
 
             if (result.Succeeded)
             {
-                return user;
+                await userManager.AddToRoleAsync(user, role);
             }
 
             foreach (var error in result.Errors)
@@ -47,6 +58,12 @@ namespace ECommerce.Services.Identity
 
             return null;
         }
+
+        public Task SetCurrentProfileImageUrl(string url)
+        {
+            throw new NotImplementedException();
+        }
+
         public async Task<bool> SignIn(LoginData data)
         {
             var result = await signInManager.PasswordSignInAsync(data.Email, data.Password, false, false);

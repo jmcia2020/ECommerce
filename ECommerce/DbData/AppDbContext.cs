@@ -55,8 +55,8 @@ namespace ECommerce.DbData
 
             builder.Entity<ApplicationRole>()
                 .HasData(
-                BuildRole(1, "Administrator"),
-                BuildRole(2, "Customer")
+                BuildRole(1, ApplicationRole.Administrator),
+                BuildRole(2, ApplicationRole.Customer)
                 );
         }
 
