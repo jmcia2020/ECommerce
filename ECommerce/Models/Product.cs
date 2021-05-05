@@ -8,6 +8,9 @@ namespace ECommerce.Models
 {
     public class Product
     {
+        [StringLength(250)]
+        public string ProdImageUrl { get; set; }
+        
         public int Id { get; set; }
         
         public string Name { get; set; }
@@ -17,9 +20,6 @@ namespace ECommerce.Models
         public decimal Price { get; set; }
 
         public bool OnSale { get; set; }
-
-        [StringLength(250)]
-        public string ProdImageUrl { get; set; }
 
 
         // Foreign Key
