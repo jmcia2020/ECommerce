@@ -31,6 +31,9 @@
                             <li>
                                 <a class="nav-link" asp-controller="Account" asp-action="Index">Account</a>
                             </li>
+                            <li>
+                                <partial name="_Logout" />
+                            </li>
                         }
                         else
                         {
@@ -41,7 +44,7 @@
                                 <a class="nav-link" asp-controller="Account" asp-action="Login">Log In</a>
                             </li>
                         }
-                        </ul>
+                    </ul>
                 </div>
             </div>
         </nav>
