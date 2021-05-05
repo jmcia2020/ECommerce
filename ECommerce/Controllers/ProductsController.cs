@@ -12,6 +12,7 @@ namespace ECommerce.Controllers
     public class ProductsController : Controller
     {
         // GET: Products
+
         public ActionResult Index()
         {
             var products = new[]{
