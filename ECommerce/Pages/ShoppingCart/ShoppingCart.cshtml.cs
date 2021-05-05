@@ -9,8 +9,15 @@ namespace ECommerce.Pages
 {
     public class ShoppingCartModel : PageModel
     {
-        public void OnGet()
+        public IActionResult OnGet()
         {
+            return NotFound();  
+        }
+
+        public async Task<IActionResult> OnPost()
+        {
+            //ProductList?
+            return Redirect("/");
         }
     }
 }
