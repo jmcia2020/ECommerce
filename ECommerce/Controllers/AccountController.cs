@@ -31,7 +31,7 @@ namespace ECommerce.Controllers
                 return View(data);
             }
             
-            await userService.Register(data, ModelState);
+            await userService.Register(data, ApplicationRole.Administrator, ModelState);
 
             // Now check for errors from Register()
             if (!ModelState.IsValid)

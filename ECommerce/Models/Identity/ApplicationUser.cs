@@ -7,5 +7,6 @@ namespace ECommerce.Models.Identity
 {
     public class ApplicationUser : IdentityUser<int>
     {
+        //public string ProfileImageUrl { get; internal set; }
     }
 }

@@ -6,20 +6,24 @@ using System.Threading.Tasks;
 
 namespace ECommerce.Models
 {
-    public class Product
+    public class Cart
     {
         [StringLength(250)]
         public string ProdImageUrl { get; set; }
         
-        public int Id { get; set; }
+        public int Cart_Id { get; set; }
         
-        public string Name { get; set; }
+        public string Item_Id { get; set; }
 
+        public int Qty { get; set; }
+
+        /*
         public string Description { get; set; }
 
         public decimal Price { get; set; }
 
         public bool OnSale { get; set; }
+
 
 
         // Foreign Key
@@ -28,5 +32,6 @@ namespace ECommerce.Models
 
         // Navigation Property
         public Category Category { get; set; }
+        */
     }
 }
