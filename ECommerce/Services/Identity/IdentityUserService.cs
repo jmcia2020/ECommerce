@@ -1,4 +1,5 @@
 ﻿using ECommerce.Models.Identity;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc.ModelBinding;
 using System;
@@ -13,21 +14,24 @@ namespace ECommerce.Services.Identity
     {
         private readonly SignInManager<ApplicationUser> signInManager;
         private readonly UserManager<ApplicationUser> userManager;
+        private readonly IHttpContextAccessor httpContextAccessor;
 
-        public IdentityUserService(UserManager<ApplicationUser> userManager, SignInManager<ApplicationUser> signInManager)
+        public IdentityUserService(UserManager<ApplicationUser> userManager, SignInManager<ApplicationUser> signInManager, IHttpContextAccessor httpContextAccessor)
         {
             this.userManager = userManager;
-            this.signInManager = signInManager;            
+            this.signInManager = signInManager;
+            this.httpContextAccessor = httpContextAccessor;
+        }
+      
+        public async Task<ApplicationUser> GetCurrentUser()
+        {
+            var principal = httpContextAccessor.HttpContext.User;
+            return await GetUser(principal);
         }
 
-        public Task<ApplicationUser> GetCurrentUser()
+        public async Task<ApplicationUser> GetUser(ClaimsPrincipal principal)
         {
-            throw new NotImplementedException();
-        }
-
-        public Task<ApplicationUser> GetUser(ClaimsPrincipal principal)
-        {
-            throw new NotImplementedException();
+            return await userManager.GetUserAsync(principal);
         }
 
         public async Task<ApplicationUser> Register(RegisterData data, string role, ModelStateDictionary modelState)
@@ -43,7 +47,21 @@ namespace ECommerce.Services.Identity
 
             if (result.Succeeded)
             {
-                await userManager.AddToRoleAsync(user, role);
+                if (role == ApplicationRole.Administrator)
+                {
+                    var admins = await userManager.GetUsersInRoleAsync(ApplicationRole.Administrator);
+                    // Only allow register Admin if this is the first
+                    if (admins.Count == 0)
+                    {
+                        await userManager.AddToRoleAsync(user, role);
+                    }
+                }
+                else
+                {
+                    await userManager.AddToRoleAsync(user, role);
+                }
+                await signInManager.SignInAsync(user, false);
+                return user;
             }
 
             foreach (var error in result.Errors)
@@ -58,17 +76,30 @@ namespace ECommerce.Services.Identity
 
             return null;
         }
-
-        public Task SetCurrentProfileImageUrl(string url)
+        /*
+        public async Task SetCurrentProfileImageUrl(string url)
         {
-            throw new NotImplementedException();
+            if (string.IsNullOrEmpty(url))
+                throw new ArgumentException("Url is missing");
+
+            var user = await GetCurrentUser();
+            if (user == null) throw new InvalidOperationException("No current user!");
+
+            user.ProfileImageUrl = url;
+            await userManager.UpdateAsync(user);
         }
+        */
 
         public async Task<bool> SignIn(LoginData data)
         {
             var result = await signInManager.PasswordSignInAsync(data.Email, data.Password, false, false);
 
             return result.Succeeded;
+        }
+
+        public async Task SignOut()
+        {
+            await signInManager.SignOutAsync();
         }
     }
 }
