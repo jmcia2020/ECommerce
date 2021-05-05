@@ -2,6 +2,7 @@
 using ECommerce.Models.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
+using System;
 
 namespace ECommerce.DbData
 {
@@ -51,7 +52,24 @@ namespace ECommerce.DbData
                     Description = "Standard size machine washable medium firm down alternative pillow",
                     Price = 25.43m,
                 });
-        } 
+
+            builder.Entity<ApplicationRole>()
+                .HasData(
+                BuildRole(1, "Administrator"),
+                BuildRole(2, "Customer")
+                );
+        }
+
+        private static ApplicationRole BuildRole(int id, string roleName)
+        {
+            return new ApplicationRole
+            {
+                Id = id,
+                Name = roleName,
+                NormalizedName = roleName.ToUpper(),
+                ConcurrencyStamp = Guid.Empty.ToString()
+            };
+        }
 
         public DbSet<Product> Products { get; set; }
 
