@@ -11,13 +11,14 @@ namespace ECommerce.Pages
     {
         public IActionResult OnGet()
         {
-            return NotFound();  
+            //ProductDetailList?
+            return Redirect("/GetMyCart");
         }
 
         public async Task<IActionResult> OnPost()
         {
-            //ProductList?
-            return Redirect("/");
+            
+            return Redirect("/GetMyCart");
         }
     }
 }
