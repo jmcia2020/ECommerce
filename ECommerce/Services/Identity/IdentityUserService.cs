@@ -21,6 +21,7 @@ namespace ECommerce.Services.Identity
             this.userManager = userManager;
             this.signInManager = signInManager;
             this.httpContextAccessor = httpContextAccessor;
+            
         }
       
         public async Task<ApplicationUser> GetCurrentUser()

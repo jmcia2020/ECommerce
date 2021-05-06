@@ -56,9 +56,10 @@
                 @Html.DisplayFor(modelItem => item.Category_Id)
             </td>
             <td>
-                
-                <a asp-page="./Details" asp-route-id="@item.Id">Details</a> 
-                
+
+                <a asp-page="./Details" asp-route-id="@item.Id">Details</a>
+                <a asp-page="./AddToCart" asp-route-id="@item.Id">AddToCart</a> @*Need Button*@
+
             </td>
         </tr>
 }
