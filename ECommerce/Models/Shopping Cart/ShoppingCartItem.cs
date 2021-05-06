@@ -6,16 +6,17 @@ using System.Threading.Tasks;
 
 namespace ECommerce.Models
 {
-    public class CartItem
-    {           
-        public string Item_Id { get; set; }
+    public class ShoppingCartItem
+    {
+        public int CartItem_Id { get; set; }
+
+        public int Cart_Id { get; set; }
 
         public int ProductId { get; set; }
 
         public int Qty { get; set; }
 
-        public int Cart_Id { get; set; }
-
+        public decimal Price { get; set; }
 
         /*
         [StringLength(250)]

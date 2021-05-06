@@ -9,15 +9,15 @@ namespace ECommerce.Pages
 {
     public class ShoppingCartModel : PageModel
     {
-        public IActionResult OnGet()
-        {
-            //ProductDetailList?
-            return Redirect("/GetMyCart");
-        }
-
         public async Task<IActionResult> OnPost()
         {
             
+            return Redirect("/AddToCart");
+        }
+
+        public IActionResult OnGet()
+        {
+            //ProductDetailList?
             return Redirect("/GetMyCart");
         }
     }

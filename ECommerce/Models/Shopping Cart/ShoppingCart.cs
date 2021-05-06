@@ -5,7 +5,14 @@ using System.Threading.Tasks;
 
 namespace ECommerce.Models.Shopping_Cart
 {
-    public class Class
+    public class ShoppingCart
     {
+        public int Cart_Id { get; set; }
+
+        public int UserId { get; set; }
+
+        public DateTime CreatedOn { get; set; }
+
+        public bool CheckedOut { get; set; }       
     }
 }
