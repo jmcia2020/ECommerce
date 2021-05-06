@@ -1,5 +1,6 @@
 using ECommerce.DbData;
 using ECommerce.Models.Identity;
+using ECommerce.Services;
 using ECommerce.Services.Identity;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -41,6 +42,9 @@ namespace ECommerce
                 .AddDefaultTokenProviders(); // so we can make cookies, yum
 
             services.AddScoped<IUserService, IdentityUserService>();
+
+           services.AddSingleton<IEmailService, LoggerEmailService>();
+
             services.AddControllersWithViews();
 
             //services.AddMvc(); // equivalent to:
