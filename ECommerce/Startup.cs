@@ -43,7 +43,7 @@ namespace ECommerce
 
             services.AddScoped<IUserService, IdentityUserService>();
 
-           services.AddSingleton<IEmailService, LoggerEmailService>();
+            services.AddSingleton<IEmailService, SendGridEmailService>();
 
             services.AddControllersWithViews();
 
